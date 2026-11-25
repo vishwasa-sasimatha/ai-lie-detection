@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Candidate Login | AI Interview Intelligence</title>
+
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-container">
+
+            <!-- LEFT SIDE -->
+            <div class="login-brand">
+
+                <div class="brand-logo">
+                    AI<span>INTERVIEW</span>
+                </div>
+
+                <div class="brand-content">
+
+                    <span class="eyebrow">
+                        AI INTERVIEW INTELLIGENCE
+                    </span>
+
+                    <h1>
+                        Start Your
+                        <span>Interview.</span>
+                    </h1>
+
+                    <p>
+                        Create your candidate profile and continue
+                        through resume analysis and AI-powered interview
+                        assessment.
+                    </p>
+
+                </div>
+
+                <div class="process">
+
+                    <div class="process-item active">
+                        <div class="process-number">01</div>
+                        <div>
+                            <strong>Candidate Profile</strong>
+                            <small>Enter your details</small>
+                        </div>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-item">
+                        <div class="process-number">02</div>
+                        <div>
+                            <strong>Resume Analysis</strong>
+                            <small>Analyze your resume</small>
+                        </div>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-item">
+                        <div class="process-number">03</div>
+                        <div>
+                            <strong>AI Interview</strong>
+                            <small>Complete your interview</small>
+                        </div>
+                    </div>
+
+                    <div class="process-line"></div>
+
+                    <div class="process-item">
+                        <div class="process-number">04</div>
+                        <div>
+                            <strong>Interview Report</strong>
+                            <small>View your results</small>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <div class="login-card">
+
+                <div class="card-header">
+
+                    <span class="card-label">
+                        CANDIDATE LOGIN
+                    </span>
+
+                    <h2>
+                        Create your profile
+                    </h2>
+
+                    <p>
+                        Enter your details to continue.
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <!-- NAME -->
+                    <div class="form-group">
+
+                        <label for="candidateName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="candidateName"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+
+                        <label for="candidateEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="candidateEmail"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PHONE -->
+                    <div class="form-group">
+
+                        <label for="candidatePhone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="candidatePhone"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            autocomplete="tel"
+                        >
+
+                    </div>
+
+
+                    <!-- ROLE -->
+                    <div class="form-group">
+
+                        <label for="candidateRole">
+                            Target Role
+                        </label>
+
+                        <select
+                            id="candidateRole"
+                            name="role"
+                            required
+                        >
+
+                            <option value="">
+                                Select your target role
+                            </option>
+
+                            <option value="Software Developer">
+                                Software Developer
+                            </option>
+
+                            <option value="Full Stack Developer">
+                                Full Stack Developer
+                            </option>
+
+                            <option value="Frontend Developer">
+                                Frontend Developer
+                            </option>
+
+                            <option value="Backend Developer">
+                                Backend Developer
+                            </option>
+
+                            <option value="Python Developer">
+                                Python Developer
+                            </option>
+
+                            <option value="AI/ML Engineer">
+                                AI/ML Engineer
+                            </option>
+
+                            <option value="Data Analyst">
+                                Data Analyst
+                            </option>
+
+                            <option value="Data Scientist">
+                                Data Scientist
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- EXPERIENCE -->
+                    <div class="form-group">
+
+                        <label for="experience">
+                            Experience Level
+                        </label>
+
+                        <select
+                            id="experience"
+                            name="experience"
+                            required
+                        >
+
+                            <option value="">
+                                Select experience level
+                            </option>
+
+                            <option value="Fresher">
+                                Fresher
+                            </option>
+
+                            <option value="0-1 Years">
+                                0–1 Years
+                            </option>
+
+                            <option value="1-3 Years">
+                                1–3 Years
+                            </option>
+
+                            <option value="3-5 Years">
+                                3–5 Years
+                            </option>
+
+                            <option value="5+ Years">
+                                5+ Years
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div
+                        id="loginError"
+                        class="login-error"
+                    ></div>
+
+
+                    <button
+                        type="submit"
+                        class="continue-btn"
+                    >
+
+                        <span>
+                            Continue to Resume Analysis
+                        </span>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <div class="security-note">
+
+                    <span class="security-icon">●</span>
+
+                    <span>
+                        Your information is used to create your
+                        interview profile and report.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="login.js"></script>
+
+</body>
+</html>

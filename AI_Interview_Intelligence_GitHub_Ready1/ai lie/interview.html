@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        AI Interview | Interview Intelligence
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="interview.css">
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <nav class="interview-navbar">
+
+        <div class="logo">
+
+            <span class="logo-icon">
+                AI
+            </span>
+
+            <span class="logo-text">
+                Interview Intelligence
+            </span>
+
+        </div>
+
+
+        <div class="interview-status">
+
+            <span class="live-dot"></span>
+
+            <span>
+                LIVE INTERVIEW
+            </span>
+
+        </div>
+
+
+        <div class="timer">
+
+            <span id="timer">
+                00:00
+            </span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN INTERVIEW
+    ====================================================== -->
+
+    <main class="interview-container">
+
+
+        <!-- =================================================
+             LEFT SIDE
+        ================================================== -->
+
+        <section class="interview-left">
+
+
+            <!-- AI INTERVIEWER -->
+
+            <div class="ai-interviewer-card">
+
+                <div class="ai-avatar">
+
+                    <div class="ai-circle">
+                        AI
+                    </div>
+
+                </div>
+
+
+                <div class="ai-content">
+
+                    <div class="ai-name">
+                        AI Interviewer
+                    </div>
+
+                    <div
+                        class="ai-state"
+                        id="aiState"
+                    >
+                        Connecting...
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <div class="question-card">
+
+                <div class="question-label">
+
+                    <span>
+                        QUESTION
+                    </span>
+
+                    <span id="questionNumber">
+                        01 / 05
+                    </span>
+
+                </div>
+
+
+                <h1 id="questionText">
+
+                    Preparing your interview...
+
+                </h1>
+
+
+                <div class="question-actions">
+
+                    <button
+                        class="speak-button"
+                        id="speakButton"
+                        type="button"
+                    >
+
+                        <span>
+                            🔊
+                        </span>
+
+                        Repeat Question
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- ANSWER -->
+
+            <div class="answer-card">
+
+                <div class="answer-header">
+
+                    <span>
+                        YOUR RESPONSE
+                    </span>
+
+                    <span
+                        id="recordingStatus"
+                        class="recording-status"
+                    >
+                        Waiting
+
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="transcript"
+                    id="transcript"
+                >
+
+                    Your spoken answer will appear here...
+
+                </div>
+
+
+                <!-- AUTOMATIC LISTENING -->
+
+                <div class="automatic-listening">
+
+                    <div class="listening-indicator">
+
+                        <span
+                            id="micIndicator"
+                            class="mic-indicator"
+                        ></span>
+
+                        <span id="listeningText">
+                            Preparing microphone...
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="silence-progress"
+                        id="silenceProgress"
+                    >
+
+                        <span></span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RIGHT SIDE
+        ================================================== -->
+
+        <section class="interview-right">
+
+
+            <!-- CAMERA -->
+
+            <div class="camera-card">
+
+                <div class="camera-header">
+
+                    <span>
+                        CANDIDATE
+                    </span>
+
+                    <span
+                        id="cameraStatus"
+                        class="camera-status"
+                    >
+                        Camera Starting
+                    </span>
+
+                </div>
+
+
+                <div class="video-container">
+
+                    <video
+                        id="candidateVideo"
+                        autoplay
+                        muted
+                        playsinline
+                    ></video>
+
+
+                    <div
+                        class="camera-placeholder"
+                        id="cameraPlaceholder"
+                    >
+
+                        <div class="camera-icon">
+                            ◉
+                        </div>
+
+                        <p>
+                            Starting camera...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- LIVE SIGNALS -->
+
+            <div class="signals-card">
+
+                <div class="signals-title">
+                    LIVE SIGNALS
+                </div>
+
+
+                <div class="signal-row">
+
+                    <div>
+                        Voice
+                    </div>
+
+                    <span
+                        id="voiceSignal"
+                        class="signal-neutral"
+                    >
+                        Waiting
+                    </span>
+
+                </div>
+
+
+                <div class="signal-row">
+
+                    <div>
+                        Response
+                    </div>
+
+                    <span
+                        id="responseSignal"
+                        class="signal-neutral"
+                    >
+                        Waiting
+                    </span>
+
+                </div>
+
+
+                <div class="signal-row">
+
+                    <div>
+                        Camera
+                    </div>
+
+                    <span
+                        id="visualSignal"
+                        class="signal-neutral"
+                    >
+                        Waiting
+                    </span>
+
+                </div>
+
+
+                <div class="signal-row">
+
+                    <div>
+                        Consistency
+                    </div>
+
+                    <span
+                        id="consistencySignal"
+                        class="signal-neutral"
+                    >
+                        Waiting
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- INTERVIEW PROGRESS -->
+
+            <div class="progress-card">
+
+                <div class="progress-header">
+
+                    <span>
+                        INTERVIEW PROGRESS
+                    </span>
+
+                    <span id="progressText">
+                        0 / 5
+                    </span>
+
+                </div>
+
+
+                <div class="progress-track">
+
+                    <div
+                        id="progressBar"
+                        class="progress-bar"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AUTO STATUS -->
+
+            <div class="auto-status-card">
+
+                <div class="auto-status-icon">
+                    AI
+                </div>
+
+                <div>
+
+                    <strong>
+                        Automatic Interview
+                    </strong>
+
+                    <p id="autoStatusText">
+                        The AI will automatically ask
+                        questions and listen to your answers.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             AI ANALYSIS
+        ================================================== -->
+
+        <section
+            class="analysis-card"
+            id="analysisPanel"
+        >
+
+            <div class="analysis-header">
+
+                <div>
+
+                    <span class="analysis-label">
+                        AI ANALYSIS
+                    </span>
+
+                    <h3>
+                        Response Assessment
+                    </h3>
+
+                </div>
+
+
+                <span
+                    id="analysisStatus"
+                    class="analysis-status"
+                >
+                    Waiting
+                </span>
+
+            </div>
+
+
+            <!-- SCORES -->
+
+            <div class="analysis-scores">
+
+
+                <div class="analysis-score">
+
+                    <span>
+                        Relevance
+                    </span>
+
+                    <strong id="relevanceScore">
+                        —
+                    </strong>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+
+                <div class="analysis-score">
+
+                    <span>
+                        Consistency
+                    </span>
+
+                    <strong id="consistencyScore">
+                        —
+                    </strong>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+
+                <div class="analysis-score">
+
+                    <span>
+                        Potential Indicator
+                    </span>
+
+                    <strong id="deceptionScore">
+                        —
+                    </strong>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- INDICATORS -->
+
+            <div class="analysis-section">
+
+                <h4>
+                    Indicators
+                </h4>
+
+                <div
+                    id="analysisIndicators"
+                    class="analysis-indicators"
+                >
+
+                    <span class="analysis-empty">
+                        Answer a question to begin analysis.
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FEEDBACK -->
+
+            <div class="analysis-section">
+
+                <h4>
+                    AI Feedback
+                </h4>
+
+                <p
+                    id="analysisFeedback"
+                    class="analysis-feedback"
+                >
+
+                    AI feedback will appear here after
+                    your answer is analyzed.
+
+                </p>
+
+            </div>
+
+
+            <!-- DISCLAIMER -->
+
+            <div class="analysis-disclaimer">
+
+                <span>
+                    ⓘ
+                </span>
+
+                <p>
+
+                    This system identifies potential
+                    inconsistencies or signals for
+                    interviewer review. It does not
+                    determine whether a person is
+                    actually lying.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         COMPLETION OVERLAY
+    ====================================================== -->
+
+    <div
+        id="completionOverlay"
+        class="completion-overlay"
+    >
+
+        <div class="completion-card">
+
+            <div class="completion-icon">
+                ✓
+            </div>
+
+            <span class="completion-label">
+                INTERVIEW COMPLETE
+            </span>
+
+            <h2>
+                Interview finished.
+            </h2>
+
+            <p>
+                Your responses have been processed.
+                The AI interview session is now complete.
+            </p>
+
+            <div class="completion-summary">
+
+                <div>
+                    <strong id="completedQuestions">
+                        5
+                    </strong>
+
+                    <span>
+                        Questions
+                    </span>
+                </div>
+
+                <div>
+                    <strong id="completionTime">
+                        00:00
+                    </strong>
+
+                    <span>
+                        Duration
+                    </span>
+                </div>
+
+            </div>
+
+            <button
+                id="closeCompletion"
+                class="completion-button"
+                type="button"
+            >
+                Return to Home
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="interview.js"></script>
+
+</body>
+
+</html>

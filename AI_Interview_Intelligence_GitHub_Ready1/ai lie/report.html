@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Interview Intelligence Report</title>
+
+    <link
+        rel="stylesheet"
+        href="report.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="report-page">
+
+        <!-- NAVBAR -->
+
+        <nav class="report-nav">
+
+            <div class="logo">
+                AI INTERVIEW
+                <span>INTELLIGENCE</span>
+            </div>
+
+            <div class="nav-status">
+                INTERVIEW REPORT
+            </div>
+
+        </nav>
+
+
+        <!-- HEADER -->
+
+        <section class="report-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    AI INTERVIEW ANALYSIS
+                </p>
+
+                <h1>
+                    Interview Report
+                </h1>
+
+                <p class="header-description">
+                    Detailed analysis of interview responses
+                    and observed behavioral signals.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button
+                    id="downloadPDF"
+                    class="primary-btn"
+                >
+                    Download PDF
+                </button>
+
+                <button
+                    id="backToInterview"
+                    class="secondary-btn"
+                >
+                    Back
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CANDIDATE -->
+
+        <section class="candidate-card">
+
+            <div class="candidate-avatar">
+                <span id="candidateInitial">
+                    C
+                </span>
+            </div>
+
+
+            <div class="candidate-info">
+
+                <h2 id="candidateName">
+                    Candidate
+                </h2>
+
+                <p id="candidateEmail">
+                    —
+                </p>
+
+            </div>
+
+
+            <div class="candidate-meta">
+
+                <div>
+                    <span>ROLE</span>
+                    <strong id="candidateRole">
+                        Software Developer
+                    </strong>
+                </div>
+
+                <div>
+                    <span>STATUS</span>
+                    <strong id="interviewStatus">
+                        Completed
+                    </strong>
+                </div>
+
+                <div>
+                    <span>QUESTIONS</span>
+                    <strong id="questionCount">
+                        0
+                    </strong>
+                </div>
+
+                <div>
+                    <span>DURATION</span>
+                    <strong id="interviewDuration">
+                        00:00
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- METRICS -->
+
+        <section class="metrics-grid">
+
+            <div class="metric-card">
+
+                <span>
+                    RESPONSE RELEVANCE
+                </span>
+
+                <strong id="overallRelevance">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    RESPONSE CONSISTENCY
+                </span>
+
+                <strong id="overallConsistency">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    BEHAVIORAL STABILITY
+                </span>
+
+                <strong id="overallBehavioralStability">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    EYE ACTIVITY
+                </span>
+
+                <strong id="overallEyeActivity">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    FACIAL STABILITY
+                </span>
+
+                <strong id="overallFaceStability">
+                    0%
+                </strong>
+
+            </div>
+
+
+            <div class="metric-card">
+
+                <span>
+                    POTENTIAL INDICATORS
+                </span>
+
+                <strong id="overallIndicator">
+                    0%
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTICE -->
+
+        <section class="notice">
+
+            <div class="notice-icon">
+                !
+            </div>
+
+            <div>
+
+                <h3>
+                    Behavioral observation notice
+                </h3>
+
+                <p>
+                    Facial, eye activity, response timing,
+                    consistency, and other behavioral signals
+                    are contextual observations only. They do
+                    not establish whether a person is truthful
+                    or deceptive.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- BEHAVIOR -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    BEHAVIORAL SIGNALS
+                </p>
+
+                <h2>
+                    Observed Behavior
+                </h2>
+
+            </div>
+
+
+            <div class="behavior-grid">
+
+                <div class="behavior-item">
+
+                    <div class="behavior-top">
+
+                        <span>
+                            Face Detection
+                        </span>
+
+                        <strong id="faceDetectionValue">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            id="faceDetectionBar"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="behavior-item">
+
+                    <div class="behavior-top">
+
+                        <span>
+                            Eye Activity
+                        </span>
+
+                        <strong id="eyeActivityValue">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            id="eyeActivityBar"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="behavior-item">
+
+                    <div class="behavior-top">
+
+                        <span>
+                            Facial Stability
+                        </span>
+
+                        <strong id="faceStabilityValue">
+                            0%
+                        </strong>
+
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            id="faceStabilityBar"
+                            class="progress-fill"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUESTION ANALYSIS -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    RESPONSE ANALYSIS
+                </p>
+
+                <h2>
+                    Question-by-Question Analysis
+                </h2>
+
+            </div>
+
+
+            <div id="questionAnalysis">
+
+                <div class="empty-state">
+                    Loading analysis...
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INDICATORS -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    AI OBSERVATIONS
+                </p>
+
+                <h2>
+                    Potential Indicators
+                </h2>
+
+            </div>
+
+
+            <div
+                id="indicatorList"
+                class="indicator-list"
+            >
+
+                <span class="empty-state">
+                    No indicators available.
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEEDBACK -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    AI SUMMARY
+                </p>
+
+                <h2>
+                    Overall Feedback
+                </h2>
+
+            </div>
+
+
+            <div
+                id="overallFeedback"
+                class="feedback-card"
+            >
+                Analysis completed.
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="report-footer">
+
+            <div>
+
+                <strong>
+                    AI Interview Intelligence
+                </strong>
+
+                <p>
+                    AI-powered interview analysis platform
+                </p>
+
+            </div>
+
+
+            <div class="footer-actions">
+
+                <button
+                    id="downloadPDFBottom"
+                    class="primary-btn"
+                >
+                    Download PDF
+                </button>
+
+                <button
+                    id="newInterview"
+                    class="secondary-btn"
+                >
+                    New Interview
+                </button>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!-- jsPDF -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    ></script>
+
+
+    <script src="report.js"></script>
+
+</body>
+
+</html>

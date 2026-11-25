@@ -1,0 +1,613 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Interview Intelligence | Resume Analysis</title>
+
+    <link
+        rel="stylesheet"
+        href="resume.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         NAVBAR
+         ===================================================== -->
+
+    <header class="navbar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+                AI
+            </div>
+
+            <div class="brand-text">
+
+                <h2>
+                    Interview Intelligence
+                </h2>
+
+                <span>
+                    Resume Analysis
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <span>
+                AI ANALYSIS
+            </span>
+
+        </div>
+
+
+        <button
+            class="dashboard-btn"
+            id="dashboardButton"
+        >
+            ← Dashboard
+        </button>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             TOP SECTION
+             ================================================= -->
+
+        <section class="top-section">
+
+
+            <!-- =============================================
+                 UPLOAD CARD
+                 ============================================= -->
+
+            <div
+                class="upload-card"
+                id="uploadArea"
+            >
+
+                <div class="upload-icon">
+                    ↑
+                </div>
+
+
+                <h1>
+                    Upload Candidate Resume
+                </h1>
+
+
+                <p>
+                    Upload a PDF, DOCX, or TXT resume for AI analysis.
+                </p>
+
+
+                <input
+                    type="file"
+                    id="resumeInput"
+                    accept=".pdf,.docx,.txt"
+                    hidden
+                >
+
+
+                <button
+                    type="button"
+                    id="uploadButton"
+                    class="choose-btn"
+                >
+                    Choose Resume
+                </button>
+
+
+                <div
+                    class="file-information"
+                    id="fileInformation"
+                >
+
+                    <span id="fileName">
+                        No file selected
+                    </span>
+
+                    <span id="fileSize"></span>
+
+                </div>
+
+
+                <div
+                    class="upload-status"
+                    id="uploadStatus"
+                >
+                    Waiting for resume
+                </div>
+
+
+                <button
+                    type="button"
+                    id="removeFile"
+                    class="remove-btn"
+                    style="display:none;"
+                >
+                    Remove Resume
+                </button>
+
+            </div>
+
+
+            <!-- =============================================
+                 ANALYZE CARD
+                 ============================================= -->
+
+            <div class="analyze-card">
+
+                <div>
+
+                    <span class="card-label">
+                        RESUME ENGINE
+                    </span>
+
+                    <h2>
+                        Analyze Resume
+                    </h2>
+
+                    <p>
+                        Extract candidate skills and experience
+                        using AI.
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="analyzeResume"
+                    class="analyze-btn"
+                    disabled
+                >
+
+                    <span>
+                        Analyze Resume
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOADING
+             ================================================= -->
+
+        <section
+            id="analysisLoading"
+            class="loading-card"
+            style="display:none;"
+        >
+
+            <div class="loading-spinner"></div>
+
+            <div>
+
+                <strong>
+                    AI is analyzing the resume...
+                </strong>
+
+                <p id="loadingText">
+                    Extracting candidate information
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ERROR
+             ================================================= -->
+
+        <div
+            id="analysisError"
+            class="error-card"
+            style="display:none;"
+        >
+
+            <strong>
+                Analysis Error
+            </strong>
+
+            <p id="errorMessage"></p>
+
+        </div>
+
+
+        <!-- =================================================
+             RESULTS
+             ================================================= -->
+
+        <section
+            id="analysisPanel"
+            class="results"
+            style="display:none;"
+        >
+
+
+            <!-- =============================================
+                 CANDIDATE
+                 ============================================= -->
+
+            <div class="candidate-card">
+
+                <div>
+
+                    <span class="section-label">
+                        CANDIDATE
+                    </span>
+
+                    <h2 id="candidateName">
+                        Candidate
+                    </h2>
+
+                    <p id="candidateEmail">
+                        Email not detected
+                    </p>
+
+                    <p id="candidatePhone">
+                        Phone not detected
+                    </p>
+
+                </div>
+
+
+                <div class="summary-box">
+
+                    <span class="section-label">
+                        AI SUMMARY
+                    </span>
+
+                    <p id="candidateSummary">
+                        Resume successfully analyzed.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 SKILLS
+                 ============================================= -->
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    TECHNICAL PROFILE
+                </span>
+
+                <h2>
+                    Detected Skills
+                </h2>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Programming Languages
+                    </h3>
+
+                    <div
+                        id="programmingLanguages"
+                        class="skill-list"
+                    ></div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Frameworks & Libraries
+                    </h3>
+
+                    <div
+                        id="frameworks"
+                        class="skill-list"
+                    ></div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Databases
+                    </h3>
+
+                    <div
+                        id="databases"
+                        class="skill-list"
+                    ></div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        AI / ML
+                    </h3>
+
+                    <div
+                        id="aiSkills"
+                        class="skill-list"
+                    ></div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Developer Tools
+                    </h3>
+
+                    <div
+                        id="tools"
+                        class="skill-list"
+                    ></div>
+
+                </div>
+
+
+                <div class="skill-card">
+
+                    <h3>
+                        Cloud Technologies
+                    </h3>
+
+                    <div
+                        id="cloudSkills"
+                        class="skill-list"
+                    ></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 EXPERIENCE
+                 ============================================= -->
+
+            <div class="result-section">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        CAREER
+                    </span>
+
+                    <h2>
+                        Experience
+                    </h2>
+
+                </div>
+
+
+                <div id="experienceList">
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 PROJECTS
+                 ============================================= -->
+
+            <div class="result-section">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        WORK
+                    </span>
+
+                    <h2>
+                        Projects
+                    </h2>
+
+                </div>
+
+
+                <div id="projectsList">
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 EDUCATION
+                 ============================================= -->
+
+            <div class="result-section">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        EDUCATION
+                    </span>
+
+                    <h2>
+                        Education
+                    </h2>
+
+                </div>
+
+
+                <div id="educationList">
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 CERTIFICATIONS
+                 ============================================= -->
+
+            <div class="result-section">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        CREDENTIALS
+                    </span>
+
+                    <h2>
+                        Certifications
+                    </h2>
+
+                </div>
+
+
+                <div id="certificationsList">
+                </div>
+
+            </div>
+
+
+            <!-- =============================================
+                 STRENGTHS
+                 ============================================= -->
+
+            <div class="result-section">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        AI INSIGHT
+                    </span>
+
+                    <h2>
+                        Technical Strengths
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="strengthsList"
+                    class="insight-list"
+                ></div>
+
+            </div>
+
+
+            <!-- =============================================
+                 INTERVIEW FOCUS
+                 ============================================= -->
+
+            <div class="result-section interview-focus-section">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        INTERVIEW ENGINE
+                    </span>
+
+                    <h2>
+                        Recommended Interview Focus
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="interviewFocus"
+                    class="focus-list"
+                ></div>
+
+            </div>
+
+
+            <!-- =============================================
+                 START INTERVIEW
+                 ============================================= -->
+
+            <div class="interview-action">
+
+                <button
+                    id="startInterview"
+                    class="start-interview-btn"
+                >
+                    Continue to AI Interview
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DISCLAIMER
+             ================================================= -->
+
+        <div class="disclaimer">
+
+            <span>ⓘ</span>
+
+            <p>
+                Resume analysis extracts information contained
+                in the submitted document to personalize the
+                interview. Behavioral analysis is handled
+                separately during the interview and identifies
+                observable signals only. It should not be treated
+                as proof that a candidate is lying or being
+                deceptive.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <script src="resume.js"></script>
+
+</body>
+
+</html>
